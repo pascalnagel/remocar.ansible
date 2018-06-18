@@ -1,0 +1,8 @@
+---
+
+- name: install basic packages
+  remote_user: root
+  hosts: localhost
+  roles:
+    - packages
+  tags: packages
