@@ -16,4 +16,4 @@ Ansible role for setting up the remocar raspberry pi
 - Pull remocar.ansible
 	- git clone https://github.com/pascalnagel/remocar.ansible.git
 - Run complete ansible playbook:
-	- ansible-playbook -i hosts local.yml
+	- ansible-playbook local.yml
