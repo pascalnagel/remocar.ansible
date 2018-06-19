@@ -15,7 +15,7 @@
   pip:
     name: "{{ item }}"
     executable: pip3
-    with_items:
+  with_items:
       - numpy
 
 - name: openCV libs
