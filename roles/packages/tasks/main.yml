@@ -11,13 +11,6 @@
     - pkg-config
     - python3-dev
 
-- name: python basic packages
-  pip:
-    name: "{{ item }}"
-    executable: pip3
-  with_items:
-      - numpy
-
 - name: openCV libs
   apt:
     name: "{{ item }}"
@@ -42,6 +35,13 @@
     target: install
     params:
       NUM_THREADS: 4
+
+- name: python basic packages
+  pip:
+    name: "{{ item }}"
+    executable: pip3
+  with_items:
+      - numpy
 
       #- name: tensorflow
       #  pip:
