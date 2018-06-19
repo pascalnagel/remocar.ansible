@@ -31,7 +31,7 @@
 
 - name: compile and install openCV
   make:
-    chdir: /tmp/opencv/opencv
+    chdir: /tmp/opencv
     target: install
     params:
       NUM_THREADS: 4
@@ -43,12 +43,12 @@
   with_items:
       - numpy
 
-      #- name: tensorflow
-      #  pip:
-      #    name: tensorflow
-      #    executable: pip3
+- name: tensorflow
+  pip:
+    name: tensorflow
+    executable: pip3
 
-      #- name: keras
-      #  pip:
-      #    name: keras
-      #    executable: pip3
+- name: keras
+  pip:
+    name: keras
+    executable: pip3
