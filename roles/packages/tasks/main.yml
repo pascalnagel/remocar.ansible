@@ -1,9 +1,50 @@
 ---
 
-- name: vim
-  apt: name=vim state=present
+- name: basic packages
+  apt: name= "{{ item }}" state=present
+  with_items:
+    - vim
+    - cmake
+    - build-essential
+    - pkg-config
+    - python3-dev
 
-- name: tensorflow
+- name: python basic packages
   pip:
-    name: tensorflow
+    name: "{{ item }}"
     executable: pip3
+    with_items:
+      - numpy
+
+- name: openCV libs
+  apt: name = "{{ item }}" state=present
+  with_items:
+    - libjpeg-dev
+    - libtiff5-dev
+    - libjasper-dev
+    - libpng12-dev
+    - libatlas-base-dev
+    - gfortran
+
+- name: clone openCV
+  git:
+    repo: 'https://github.com/Itseez/opencv.git'
+    dest: /tmp
+    force: yes
+
+- name: compile and install openCV
+  make:
+    chdir: /tmp/opencv
+    target: install
+    params:
+      NUM_THREADS: 4
+
+      #- name: tensorflow
+      #  pip:
+      #    name: tensorflow
+      #    executable: pip3
+
+      #- name: keras
+      #  pip:
+      #    name: keras
+      #    executable: pip3
