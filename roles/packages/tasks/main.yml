@@ -29,15 +29,23 @@
     dest: /tmp/opencv
     force: yes
 
+- name: create openCV build dir
+  file:
+    path: /tmp/opencv/build
+    state: directory
+
+- name: prepare openCV compilation
+  script: opencv_config.sh
+
 - name: compile openCV
   make:
-    chdir: /tmp/opencv
+    chdir: /tmp/opencv/build
     params:
       NUM_THREADS: 4
 
 - name: install openCV
   make:
-    chdir: /tmp/opencv
+    chdir: /tmp/opencv/build
     target: install
 
 - name: python basic packages
