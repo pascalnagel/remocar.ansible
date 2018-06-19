@@ -29,12 +29,16 @@
     dest: /tmp/opencv
     force: yes
 
-- name: compile and install openCV
+- name: compile openCV
+  make:
+    chdir: /tmp/opencv
+    params:
+      NUM_THREADS: 4
+
+- name: install openCV
   make:
     chdir: /tmp/opencv
     target: install
-    params:
-      NUM_THREADS: 4
 
 - name: python basic packages
   pip:
