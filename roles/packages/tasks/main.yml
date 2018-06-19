@@ -2,3 +2,8 @@
 
 - name: vim
   apt: name=vim state=present
+
+- name: tensorflow
+  pip:
+    name: tensorflow
+    executable: pip-3
