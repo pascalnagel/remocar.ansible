@@ -26,12 +26,12 @@
 - name: clone openCV
   git:
     repo: 'https://github.com/Itseez/opencv.git'
-    dest: /tmp
+    dest: /tmp/opencv
     force: yes
 
 - name: compile and install openCV
   make:
-    chdir: /tmp/opencv
+    chdir: /tmp/opencv/opencv
     target: install
     params:
       NUM_THREADS: 4
