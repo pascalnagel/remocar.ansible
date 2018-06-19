@@ -6,4 +6,4 @@
 - name: tensorflow
   pip:
     name: tensorflow
-    executable: pip-3
+    executable: pip3
